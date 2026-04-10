@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
 public class OrderPage {
@@ -92,8 +93,9 @@ public class OrderPage {
     public void clickbuttonConfirm() {
         driver.findElement(buttonConfirm).click();
     }
-    //метод проверяет оформлен ли заказ
-    public boolean checktextOrder() {
-        return driver.findElement(textOrder).isDisplayed();
+    //метод возвращает текст "Заказ оформлен"
+    public String checktextOrder() {
+        WebElement ordertext = driver.findElement(textOrder);
+        return ordertext.getText();
     }
 }

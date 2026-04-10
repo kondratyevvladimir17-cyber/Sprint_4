@@ -7,6 +7,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.MainPage;
 import pages.OrderPage;
 
+import static pages.MainPage.URL_ADRESS;
+
 
 public class BaseUITest {
      WebDriver driver;
@@ -28,7 +30,7 @@ public class BaseUITest {
         WebDriverManager.firefoxdriver().setup();
         mainPage = new MainPage(driver);
         orderPage = new OrderPage(driver);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(URL_ADRESS);
     }
 
     public void startBrowserChrome() {
@@ -36,7 +38,7 @@ public class BaseUITest {
         WebDriverManager.chromedriver().setup();
         mainPage = new MainPage(driver);
         orderPage = new OrderPage(driver);
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(URL_ADRESS);
     }
 
     @After

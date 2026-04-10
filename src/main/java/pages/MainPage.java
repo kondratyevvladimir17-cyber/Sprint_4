@@ -3,12 +3,12 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 
 public class MainPage {
     WebDriver driver;
+    public static final String URL_ADRESS = "https://qa-scooter.praktikum-services.ru/";
     //локатор кнопки принятия cookie
     public By cookieAcceptButton = By.className("App_CookieButton__3cvqF");
     //локатор кнопок вопросов
@@ -17,7 +17,7 @@ public class MainPage {
     //локатор верхней кнопки "Заказать"
     private By upOrderButton = By.className("Button_Button__ra12g");
     //локатор нижней копки "Заказать"
-    private By downOrderButton = By.className("Button_Middle__1CSJM");
+    private By downOrderButton = By.cssSelector("button.Button_Middle__1CSJM");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;

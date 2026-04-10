@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertTrue;
 
 
 public class OrderFlowTests extends BaseUITest {
@@ -21,7 +22,10 @@ public class OrderFlowTests extends BaseUITest {
         orderPage.fillingcommentCourier("Будем ждать!");
         orderPage.clickbuttonOrder();
         orderPage.clickbuttonConfirm(); //на данном методе в браузере Chrome тест падает из-за бага(не нажимается кнопка "да")
-        orderPage.checktextOrder();
+        String actualText = orderPage.checktextOrder();
+        String expectedText = "Заказ оформлен";
+        assertTrue(actualText.contains(expectedText));
+
     }
     //тест для нижней кнопки "Заказать"
     @Test
@@ -34,13 +38,15 @@ public class OrderFlowTests extends BaseUITest {
         orderPage.fillingfieldMetro("Чистые пруды");
         orderPage.fillingfieldPhone("+79398996787");
         orderPage.clickfurtherButton();
-        orderPage.fillingdeliveryTime("12.04.2026");
+        orderPage.fillingdeliveryTime("11.04.2026");
         orderPage.fillingfieldRentTime();
         orderPage.clickgreyBoxScooter();
         orderPage.fillingcommentCourier("Спасибо!");
         orderPage.clickbuttonOrder();
         orderPage.clickbuttonConfirm();//на данном методе в браузере Chrome тест падает из-за бага(не нажимается кнопка "да")
-        orderPage.checktextOrder();
+        String actualText = orderPage.checktextOrder();
+        String expectedText = "Заказ оформлен";
+        assertTrue(actualText.contains(expectedText));
     }
 
 }
